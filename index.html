@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>StreamVault IPTV | Premium Legal IPTV Service</title>
+    <!-- Google Fonts & simple CSS reset -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            color: #0f172a;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* header & nav */
+        header {
+            background: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 18px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #1e293b;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #3b82f6;
+        }
+
+        .btn-outline {
+            border: 1px solid #3b82f6;
+            padding: 8px 20px;
+            border-radius: 40px;
+            background: transparent;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-outline:hover {
+            background: #3b82f6;
+            color: white !important;
+        }
+
+        /* sections */
+        .section {
+            padding: 80px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .grid-2cols {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #eef2ff;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 1rem 0;
+        }
+
+        .legal-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .legal-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: #0f172a;
+        }
+
+        .legal-card p, .legal-card li {
+            color: #334155;
+            margin-bottom: 0.75rem;
+        }
+
+        .legal-card ul {
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .contact-info {
+            background: #f1f5f9;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        button, .fake-button {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.2s;
+            display: inline-block;
+        }
+
+        button:hover {
+            background: #2563eb;
+        }
+
+        .badge {
+            background: #eef2ff;
+            color: #1e40af;
+            border-radius: 50px;
+            padding: 4px 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-bar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .section {
+                padding: 60px 0;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        .hidden-page {
+            display: none;
+        }
+
+        .active-page {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav-bar">
+        <div class="logo">StreamVault IPTV</div>
+        <div class="nav-links">
+            <a href="#" data-page="home" class="nav-link active">Home</a>
+            <a href="#" data-page="terms" class="nav-link">Terms of Service</a>
+            <a href="#" data-page="privacy" class="nav-link">Privacy Policy</a>
+            <a href="#" data-page="refund" class="nav-link">Refund Policy</a>
+            <a href="#" data-page="contact" class="nav-link">Contact</a>
+            <a href="#" class="btn-outline" id="demoCta">Get Access</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- HOME PAGE -->
+    <div id="page-home" class="active-page">
+        <section class="section" style="padding-top: 60px;">
+            <div class="container">
+                <div class="badge">✨ Fully Compliant IPTV Service – EU & UK</div>
+                <h1 class="section-title" style="font-size: 3rem;">Legal IPTV Aggregation <br>For Europe</h1>
+                <p style="font-size: 1.2rem; max-width: 700px; margin-bottom: 2rem; color: #334155;">StreamVault provides transparent, fully authorized content delivery. We follow stringent copyright laws in France, Germany, UK, and all EU territories.</p>
+                <button id="learnMoreBtn">Explore Packages →</button>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">How StreamVault Works</h2>
+                <div class="grid-2cols">
+                    <div class="card">
+                        <div style="font-size: 2rem;">📺</div>
+                        <h3 style="margin: 1rem 0 0.5rem;">Legal Aggregation</h3>
+                        <p>We aggregate content from licensed partners and public domain sources. No unauthorized streams, no piracy.</p>
+                    </div>
+                    <div class="card">
+                        <div style="font-size: 2rem;">⚖️</div>
+                        <h3 style="margin: 1rem 0 0.5rem;">GDPR & Copyright Shield</h3>
+                        <p>All user data processed according to GDPR. We actively block any reported copyright infringement.</p>
+                    </div>
+                    <div class="card">
+                        <div style="font-size: 2rem;">🌍</div>
+                        <h3 style="margin: 1rem 0 0.5rem;">Europe Focused</h3>
+                        <p>Servers located in Frankfurt & London. Optimized for French, German, British audiences.</p>
+                    </div>
+                    <div class="card">
+                        <div style="font-size: 2rem;">🛡️</div>
+                        <h3 style="margin: 1rem 0 0.5rem;">Zero Infringement Policy</h3>
+                        <p>Strict anti-piracy measures. Users must comply with our DMCA/欧盟版权法.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background: #f1f5f9;">
+            <div class="container">
+                <h2 class="section-title">Simple monthly plans</h2>
+                <div class="grid-2cols">
+                    <div class="card">
+                        <h3>Starter Pack</h3>
+                        <div class="price">€9.99<span style="font-size:1rem;">/month</span></div>
+                        <p>Access to 50+ legal channels (free-to-air & licensed partners).</p>
+                        <button style="margin-top: 1rem; width: 100%;">Coming Soon</button>
+                    </div>
+                    <div class="card">
+                        <h3>Pro Europe</h3>
+                        <div class="price">€19.99<span style="font-size:1rem;">/month</span></div>
+                        <p>150+ channels, EPG, multi-device support. 7-day free trial.</p>
+                        <button style="margin-top: 1rem; width: 100%;">Pre-register</button>
+                    </div>
+                </div>
+                <p style="font-size: 0.85rem; margin-top: 2rem; text-align: center; color:#475569;">* All plans include content from rightsholders with proper licensing. No copyrighted pay-TV streams are provided without authorization.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- TERMS OF SERVICE PAGE -->
+    <div id="page-terms" class="hidden-page">
+        <section class="section">
+            <div class="container">
+                <div class="legal-card">
+                    <h2 class="section-title">Terms of Service</h2>
+                    <p><strong>Last updated:</strong> May 7, 2026</p>
+                    <p><strong>StreamVault IPTV – operated by StreamVault Technologies (EU representative office).</strong> These terms govern your use of our IPTV service. By subscribing or accessing any content, you agree to these terms.</p>
+                    
+                    <h3>1. Legitimate Use Only</h3>
+                    <p>You agree not to use the Service to access, distribute, or view any content that infringes third-party copyrights. StreamVault only provides access to content that is either in the public domain, covered by redistribution licenses, or explicitly allowed by rightsholders. Any attempt to circumvent geo-restrictions or view unauthorized premium channels is prohibited.</p>
+                    
+                    <h3>2. Intellectual Property & Copyright Compliance</h3>
+                    <p>We comply with the EU Copyright Directive (CDSM) and national laws (including France's Hadopi/CREATIVE, Germany's UrhG, UK's Copyright, Designs and Patents Act 1988). If we receive a valid copyright infringement notice, we will immediately remove the reported content and terminate repeat infringers' accounts.</p>
+                    
+                    <h3>3. Account Responsibility</h3>
+                    <p>You are responsible for maintaining the confidentiality of your login credentials. Any activity under your account is your responsibility. StreamVault may suspend accounts used for illegal streaming activities.</p>
+                    
+                    <h3>4. Service Availability</h3>
+                    <p>We strive to provide 99.9% uptime, but temporary interruptions for maintenance or legal takedown requests may occur. No refunds for partial months due to legal compliance actions.</p>
+                    
+                    <h3>5. Governing Law & Disputes</h3>
+                    <p>These terms are governed by the laws of Ireland (EU). Any disputes shall be resolved in courts of Dublin. For UK customers, English law applies with jurisdiction in London.</p>
+                    
+                    <h3>6. Contact for Legal Notices</h3>
+                    <p>For DMCA / copyright claims: <strong>legal@streamvault.example</strong> (replace with actual email). For PayPal or payment inquiries: <strong>1085453796@qq.com</strong></p>
+                    <p style="margin-top:1rem;"><em>By using StreamVault, you confirm that you are at least 18 years old and you will not use the service for any unlawful activity.</em></p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- PRIVACY POLICY PAGE (GDPR compliant) -->
+    <div id="page-privacy" class="hidden-page">
+        <section class="section">
+            <div class="container">
+                <div class="legal-card">
+                    <h2 class="section-title">Privacy Policy (GDPR)</h2>
+                    <p><strong>Responsible entity:</strong> StreamVault Technologies, 3rd Floor, 45 Merrion Square, Dublin 2, Ireland (EU).</p>
+                    <p>We collect and process personal data only as necessary to provide our IPTV service and comply with legal obligations.</p>
+                    
+                    <h3>1. Data we collect</h3>
+                    <p>- Account info: email address (1085453796@qq.com for business correspondence), billing data (handled via PayPal/Stripe).<br>
+                    - Usage data: IP address, device type, stream access logs (retained 30 days for security & copyright enforcement).<br>
+                    - No sensitive personal data is collected.</p>
+                    
+                    <h3>2. Legal basis (GDPR Art. 6)</h3>
+                    <p>We process data based on contract performance (providing the IPTV service), legal obligations (tax/copyright laws), and legitimate interests (fraud prevention, network security).</p>
+                    
+                    <h3>3. Your rights</h3>
+                    <p>You have the right to access, rectify, erase, restrict processing, and data portability. Requests: privacy@streamvault.example. You may lodge a complaint with your local EU DPA.</p>
+                    
+                    <h3>4. Data sharing</h3>
+                    <p>We do not sell or rent your data. We share data only with payment processors (PayPal), hosting providers (EU-based), and legal authorities if required by court order. No third-party advertising.</p>
+                    
+                    <h3>5. Cookies</h3>
+                    <p>We use essential cookies only (session management). No tracking cookies. You can disable cookies in browser settings but some features may break.</p>
+                    
+                    <h3>6. Data retention</h3>
+                    <p>Account data retained until you delete your account + 6 months for legal obligations. Stream logs are anonymized after 30 days.</p>
+                    
+                    <h3>Contact our Data Protection Officer</h3>
+                    <p>Email: dpo@streamvault.example  |  Business email: 1085453796@qq.com (for general inquiries)</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- REFUND POLICY -->
+    <div id="page-refund" class="hidden-page">
+        <section class="section">
+            <div class="container">
+                <div class="legal-card">
+                    <h2 class="section-title">Refund & Cancellation Policy</h2>
+                    <p>Since StreamVault provides digital IPTV services, refunds are granted under specific conditions to protect both consumers and service integrity. This policy complies with EU Consumer Rights Directive 2011/83/EU regarding digital content.</p>
+                    
+                    <h3>1. 14-Day Cooling-off Period (EU customers)</h3>
+                    <p>If you are a consumer residing in the EU, you have the right to cancel your subscription within 14 days of purchase without giving any reason, provided you have not started streaming any content. Once you stream any channel, you waive your 14-day right to withdraw (as permitted by law for digital content performed immediately).</p>
+                    
+                    <h3>2. Technical Faults</h3>
+                    <p>If the service is completely inaccessible for more than 48 consecutive hours due to our error, we will issue a pro-rated refund for the unusable period. Minor buffering or temporary service degradation does not qualify.</p>
+                    
+                    <h3>3. Non-refundable cases</h3>
+                    <p>- Subscription fees for partial months used.<br>
+                    - Violation of Terms of Service (e.g., sharing account for unauthorized access).<br>
+                    - Changes in content availability due to copyright compliance takedowns.</p>
+                    
+                    <h3>4. How to request a refund</h3>
+                    <p>Contact us at <strong>1085453796@qq.com</strong> with your account email and reason. We aim to respond within 5 business days. Approved refunds will be processed via original payment method within 14 days.</p>
+                    
+                    <p><em>By using our service, you acknowledge that you have read and accepted this refund policy.</em></p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="page-contact" class="hidden-page">
+        <section class="section">
+            <div class="container">
+                <div class="legal-card">
+                    <h2 class="section-title">Contact StreamVault</h2>
+                    <div class="contact-info" style="text-align: left;">
+                        <p><strong>📧 General & Sales Inquiries:</strong> <a href="mailto:1085453796@qq.com">1085453796@qq.com</a></p>
+                        <p><strong>⚖️ Legal / Copyright Notices:</strong> legal@streamvault.example (official channel)</p>
+                        <p><strong>📍 EU Office Address:</strong> 3rd Floor, 45 Merrion Square, Dublin 2, D02 VY59, Ireland</p>
+                        <p><strong>🇫🇷 France support (French language):</strong> contact-fr@streamvault.example</p>
+                        <p><strong>🇩🇪 Germany support:</strong> kontakt-de@streamvault.example</p>
+                        <p><strong>🇬🇧 United Kingdom:</strong> support-uk@streamvault.example</p>
+                        <hr style="margin: 1.5rem 0;">
+                        <p><strong>Business hours (CET):</strong> Mon-Fri, 9am – 5pm. Response within 24h.</p>
+                        <p>For PayPal dispute management or billing issues, please quote your transaction ID and use the email above.</p>
+                        <button id="copyEmailBtn" style="margin-top: 1rem;">📋 Copy support email</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2026 StreamVault IPTV – All rights reserved. StreamVault is not affiliated with any unlicensed streaming service. We strictly comply with EU copyright framework, UK Digital Economy Act, and French/German broadcasting laws.</p>
+        <p style="margin-top: 1rem;">📍 Registered address: Dublin, Ireland (EU) | For residents of France, Germany, UK: This service provides only legally acquired content.</p>
+        <p style="margin-top: 0.5rem; font-size:0.8rem;">* For PayPal verification: we operate as a transparent business with valid Terms & Privacy. All content displayed is for demonstration of service features. No actual streams are hosted on this site. Actual IPTV delivery is performed via partner CDNs with full licensing documentation available upon request to authorities.</p>
+    </div>
+</footer>
+
+<script>
+    // page navigation logic
+    const pages = {
+        home: document.getElementById('page-home'),
+        terms: document.getElementById('page-terms'),
+        privacy: document.getElementById('page-privacy'),
+        refund: document.getElementById('page-refund'),
+        contact: document.getElementById('page-contact')
+    };
+
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    function showPage(pageId) {
+        Object.keys(pages).forEach(id => {
+            pages[id].classList.add('hidden-page');
+            pages[id].classList.remove('active-page');
+        });
+        pages[pageId].classList.remove('hidden-page');
+        pages[pageId].classList.add('active-page');
+        
+        // update active class on nav
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if(link.getAttribute('data-page') === pageId) {
+                link.classList.add('active');
+            }
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const pageId = link.getAttribute('data-page');
+            if(pageId && pages[pageId]) {
+                showPage(pageId);
+            }
+        });
+    });
+
+    // get access demo button (just an alert, no actual payment)
+    const demoBtn = document.getElementById('demoCta');
+    if(demoBtn) {
+        demoBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Thank you for your interest! StreamVault is currently in pre-launch phase. Please contact 1085453796@qq.com to join waiting list. PayPal integration will be available after full launch.');
+        });
+    }
+    const learnMoreBtn = document.getElementById('learnMoreBtn');
+    if(learnMoreBtn) {
+        learnMoreBtn.addEventListener('click', () => {
+            document.getElementById('page-terms').scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+
+    // copy email functionality
+    const copyBtn = document.getElementById('copyEmailBtn');
+    if(copyBtn) {
+        copyBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText('1085453796@qq.com').then(() => {
+                alert('Support email copied: 1085453796@qq.com');
+            });
+        });
+    }
+
+    // ensure active link highlight on initial load
+    const activeNav = document.querySelector('.nav-link[data-page="home"]');
+    if(activeNav) activeNav.classList.add('active');
+</script>
+</body>
+</html>
